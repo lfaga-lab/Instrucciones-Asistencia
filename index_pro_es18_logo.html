@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guía de uso | Asistencia Institucional - ES N° 18 Alte. Brown</title>
+  <meta name="description" content="Guía visual de uso de la aplicación de Asistencia Institucional de la Escuela Secundaria N° 18 de Almirante Brown." />
+  <style>
+    :root{
+      --bg:#f5f4ef;
+      --bg-2:#efede4;
+      --panel:rgba(255,255,255,.78);
+      --panel-solid:#fff;
+      --ink:#18201b;
+      --muted:#5c665f;
+      --green:#0f4a2f;
+      --green-2:#245a37;
+      --gold:#c89f17;
+      --gold-2:#b28a12;
+      --line:rgba(15,74,47,.12);
+      --ring:rgba(200,159,23,.18);
+      --shadow:0 14px 36px rgba(16,23,18,.10);
+      --shadow-lg:0 24px 58px rgba(16,23,18,.14);
+      --radius:22px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--ink);
+      line-height:1.45;
+      background:
+        radial-gradient(1100px 580px at 10% -10%, rgba(15,74,47,.10), transparent 62%),
+        radial-gradient(900px 520px at 100% 12%, rgba(200,159,23,.10), transparent 62%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg) 35%, var(--bg-2) 100%);
+    }
+    a{color:inherit;text-decoration:none}
+    img,video{display:block;max-width:100%}
+    .container{width:min(1180px, calc(100% - 28px)); margin:0 auto}
+
+    .topbar{
+      position:sticky; top:0; z-index:60;
+      backdrop-filter: blur(12px);
+      background: rgba(245,244,239,.76);
+      border-bottom:1px solid rgba(15,74,47,.08);
+    }
+    .topbar-inner{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 0}
+    .brand{display:flex; align-items:center; gap:12px; min-width:0}
+    .brand-logo{
+      width:44px; height:44px; border-radius:14px; overflow:hidden; flex:0 0 auto;
+      border:1px solid rgba(15,74,47,.12); background:#fff; box-shadow:var(--shadow);
+    }
+    .brand-logo img{width:100%; height:100%; object-fit:cover}
+    .brand-text{min-width:0}
+    .eyebrow{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
+    .brand-title{font-size:14px; font-weight:800; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+    .top-actions{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:10px 14px; border-radius:12px; border:1px solid transparent;
+      font-size:14px; font-weight:700; cursor:pointer; transition:.18s ease;
+      box-shadow:0 5px 16px rgba(0,0,0,.05);
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{background:linear-gradient(135deg,var(--green),var(--green-2)); color:#fff}
+    .btn-secondary{background:#fff; border-color:rgba(15,74,47,.10)}
+    .btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-2)); color:#1f1b0d}
+
+    .hero{padding:28px 0 24px}
+    .hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:22px; align-items:stretch}
+    .panel{
+      background:var(--panel); border:1px solid rgba(15,74,47,.08); border-radius:var(--radius);
+      box-shadow:var(--shadow); backdrop-filter: blur(10px);
+    }
+    .hero-card{padding:24px}
+    .pill-row{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px}
+    .pill{
+      display:inline-flex; align-items:center; gap:6px; padding:7px 10px;
+      border-radius:999px; font-size:12px; font-weight:700;
+      border:1px solid rgba(15,74,47,.10); background:rgba(255,255,255,.72);
+    }
+    .pill.gold{border-color:rgba(200,159,23,.18); background:rgba(200,159,23,.12)}
+    h1{margin:0; font-size:clamp(28px, 4vw, 46px); line-height:1.06; letter-spacing:-.02em}
+    .hero-sub{margin:12px 0 16px; color:var(--muted); font-size:15px; max-width:62ch}
+    .cta-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .hero-note{margin-top:14px; font-size:13px; color:var(--muted)}
+
+    .stats{display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-top:16px}
+    .stat{
+      background:#fff; border-radius:16px; border:1px solid var(--line); padding:12px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+    }
+    .stat .label{font-size:12px; color:var(--muted)}
+    .stat .value{font-size:18px; font-weight:800; margin-top:2px}
+
+    .logo-panel{padding:18px; display:flex; flex-direction:column; justify-content:space-between; gap:12px}
+    .logo-wrap{
+      background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.78));
+      border:1px solid var(--line); border-radius:20px; padding:12px; box-shadow: inset 0 1px 0 rgba(255,255,255,.95);
+    }
+    .logo-wrap img{width:100%; aspect-ratio:1/1; object-fit:contain; border-radius:14px; background:#fff}
+    .logo-caption{font-size:13px; color:var(--muted); line-height:1.4}
+    .accent-strip{
+      border-radius:16px; padding:12px; color:#fff;
+      background:linear-gradient(135deg, var(--green), rgba(15,74,47,.9) 62%, rgba(200,159,23,.86));
+      box-shadow: var(--shadow);
+    }
+    .accent-strip strong{display:block; font-size:14px; margin-bottom:4px}
+    .accent-strip span{font-size:12px; opacity:.95}
+
+    .section{padding:14px 0 8px}
+    .section-head{display:flex; justify-content:space-between; align-items:flex-end; gap:12px; margin:4px 0 14px}
+    .section-head h2{margin:0; font-size:24px; letter-spacing:-.02em}
+    .section-head p{margin:0; color:var(--muted); font-size:14px}
+
+    .steps{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:16px}
+    .step-card{
+      background:var(--panel); border:1px solid rgba(15,74,47,.08); border-radius:20px; overflow:hidden;
+      box-shadow:var(--shadow); backdrop-filter: blur(10px);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .step-card:hover{transform:translateY(-2px); box-shadow:var(--shadow-lg)}
+    .video-shell{position:relative; background:#0d0f0e; aspect-ratio:16/9}
+    .video-shell video{width:100%; height:100%; object-fit:cover}
+    .step-topline{
+      position:absolute; inset:10px 10px auto 10px; display:flex; justify-content:space-between; gap:8px; pointer-events:none;
+    }
+    .badge, .tag{
+      backdrop-filter: blur(10px);
+      border-radius:999px; padding:7px 10px; font-size:12px; font-weight:700;
+      border:1px solid rgba(255,255,255,.22); color:#fff;
+      background:rgba(11,14,12,.45);
+      box-shadow:0 6px 20px rgba(0,0,0,.18);
+    }
+    .tag{background:rgba(200,159,23,.20); border-color:rgba(200,159,23,.34)}
+    .step-content{padding:15px}
+    .step-header{display:flex; align-items:flex-start; gap:10px}
+    .step-num{
+      width:34px; height:34px; border-radius:11px; flex:0 0 auto; display:grid; place-items:center;
+      background:linear-gradient(135deg, rgba(15,74,47,.10), rgba(200,159,23,.16));
+      border:1px solid var(--line); font-weight:800; color:var(--green);
+    }
+    .step-title{margin:0; font-size:18px; line-height:1.15}
+    .step-desc{margin:8px 0 12px; color:var(--muted); font-size:14px}
+    .step-list{margin:0; padding-left:18px; color:#38433b; font-size:13px}
+    .step-list li+li{margin-top:4px}
+    .step-actions{display:flex; gap:8px; flex-wrap:wrap; margin-top:12px}
+    .tiny-btn{
+      display:inline-flex; align-items:center; gap:6px; padding:8px 10px; border-radius:10px;
+      background:#fff; border:1px solid var(--line); font-size:12px; font-weight:700;
+    }
+
+    .info-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:16px; margin-top:16px}
+    .card{padding:18px}
+    .checklist{display:grid; gap:10px; margin-top:8px}
+    .check-item{
+      display:grid; grid-template-columns:auto 1fr; gap:10px; align-items:start;
+      padding:10px 12px; border-radius:14px; background:#fff; border:1px solid var(--line);
+    }
+    .check-dot{width:24px; height:24px; border-radius:8px; display:grid; place-items:center; font-weight:800;
+      background:rgba(15,74,47,.10); color:var(--green); border:1px solid rgba(15,74,47,.10)}
+    .small{font-size:13px; color:var(--muted)}
+
+    .quick-links{display:grid; gap:10px}
+    .qlink{
+      display:flex; align-items:center; justify-content:space-between; gap:10px; padding:12px 14px;
+      border-radius:14px; background:#fff; border:1px solid var(--line);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .qlink:hover{transform:translateY(-1px); box-shadow:0 10px 20px rgba(15,74,47,.07)}
+    .qlink .left{display:flex; align-items:center; gap:10px}
+    .ql-ico{width:32px; height:32px; border-radius:10px; display:grid; place-items:center; background:rgba(200,159,23,.14); border:1px solid rgba(200,159,23,.18)}
+    .ql-meta b{display:block; font-size:14px}
+    .ql-meta span{display:block; font-size:12px; color:var(--muted)}
+
+    .footer-cta{padding:18px 0 30px}
+    .footer-box{
+      background: linear-gradient(135deg, rgba(15,74,47,.98), rgba(28,78,43,.96) 60%, rgba(200,159,23,.90));
+      color:#fff; border-radius:24px; padding:22px; box-shadow:var(--shadow-lg);
+      display:grid; grid-template-columns:1.1fr auto; gap:14px; align-items:center;
+    }
+    .footer-box h3{margin:0; font-size:24px; letter-spacing:-.02em}
+    .footer-box p{margin:6px 0 0; opacity:.95; font-size:14px; max-width:60ch}
+    .footer-actions{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    .btn-white{background:#fff; color:var(--green); border:1px solid rgba(255,255,255,.18)}
+
+    .floating-cta{
+      position:fixed; right:14px; bottom:14px; z-index:55;
+      display:inline-flex; align-items:center; gap:8px; padding:12px 14px;
+      border-radius:14px; font-size:14px; font-weight:800; color:#1f1b0d;
+      background:linear-gradient(135deg, var(--gold), #d5ad2c);
+      border:1px solid rgba(178,138,18,.25);
+      box-shadow:0 14px 30px rgba(0,0,0,.18);
+    }
+
+    .reveal{opacity:0; transform:translateY(10px); transition: opacity .45s ease, transform .45s ease}
+    .reveal.show{opacity:1; transform:none}
+
+    @media (max-width: 980px){
+      .hero-grid, .info-grid, .footer-box{grid-template-columns:1fr}
+      .footer-actions{justify-content:flex-start}
+    }
+    @media (max-width: 760px){
+      .topbar-inner{align-items:flex-start; padding:10px 0}
+      .top-actions{width:100%}
+      .btn{padding:10px 12px; font-size:13px}
+      .hero{padding-top:18px}
+      .hero-card, .logo-panel{padding:16px}
+      .steps{grid-template-columns:1fr}
+      .section-head{align-items:flex-start; flex-direction:column}
+      .brand-title{white-space:normal; line-height:1.2}
+      .floating-cta{left:14px; right:14px; justify-content:center}
+      .stats{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 420px){
+      .stats{grid-template-columns:1fr}
+      .cta-row .btn{width:100%}
+      .top-actions .btn{flex:1 1 auto}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="brand-logo"><img src="LOGO.jpeg" alt="Logo Escuela Secundaria N° 18 de Almirante Brown" /></div>
+        <div class="brand-text">
+          <div class="eyebrow">Guía oficial de uso</div>
+          <div class="brand-title">Escuela Secundaria N° 18 • Jorge Luis Borges • Alte. Brown</div>
+        </div>
+      </div>
+      <div class="top-actions">
+        <a class="btn btn-secondary" href="#videos">▶ Ver tutoriales</a>
+        <a class="btn btn-primary" href="https://lfaga-lab.github.io/AsistenciaES18/" target="_blank" rel="noopener">Ingresar a la plataforma</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="panel hero-card reveal">
+          <div class="pill-row">
+            <span class="pill">📘 Asistencia Institucional</span>
+            <span class="pill gold">🏫 ES N° 18 • Almirante Brown</span>
+          </div>
+          <h1>Aprendé a usar la plataforma de forma clara, rápida y ordenada</h1>
+          <p class="hero-sub">
+            Esta página reúne los tutoriales principales para que el equipo institucional pueda implementar y usar la aplicación con una experiencia simple, profesional y consistente.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://lfaga-lab.github.io/AsistenciaES18/" target="_blank" rel="noopener">🚀 Abrir plataforma</a>
+            <a class="btn btn-gold" href="#videos">🎬 Empezar recorrido</a>
+          </div>
+          <p class="hero-note">Sugerencia: mirá los videos en orden para una implementación más fluida del sistema.</p>
+          <div class="stats">
+            <div class="stat"><div class="label">Tutoriales incluidos</div><div class="value">4 videos</div></div>
+            <div class="stat"><div class="label">Modo de uso</div><div class="value">Paso a paso</div></div>
+            <div class="stat"><div class="label">Acceso</div><div class="value">Web / GitHub Pages</div></div>
+            <div class="stat"><div class="label">Enfoque</div><div class="value">Gestión institucional</div></div>
+          </div>
+        </div>
+
+        <aside class="panel logo-panel reveal">
+          <div class="logo-wrap">
+            <img src="LOGO.jpeg" alt="Emblema de la Escuela Secundaria N° 18 Jorge Luis Borges" />
+          </div>
+          <div class="logo-caption">
+            <strong style="color:var(--green)">Escuela Secundaria N° 18 – Jorge Luis Borges</strong><br>
+            Diseño visual adaptado al estilo del emblema institucional, con paleta verde y dorado para una identidad más sólida.
+          </div>
+          <div class="accent-strip">
+            <strong>Recorrido recomendado</strong>
+            <span>Instalación → Toma de asistencia → Edición → Emisión de alertas</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="videos" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <h2>Recorrido guiado en video</h2>
+            <p>Los videos están organizados para acompañar la implementación y el uso diario de la app.</p>
+          </div>
+        </div>
+
+        <div class="steps">
+          <article class="step-card reveal" id="instalar">
+            <div class="video-shell">
+              <video controls preload="metadata" playsinline>
+                <source src="Instalar APP.mp4" type="video/mp4" />
+                Tu navegador no puede reproducir este video.
+              </video>
+              <div class="step-topline">
+                <span class="badge">Paso 1</span>
+                <span class="tag">Inicio</span>
+              </div>
+            </div>
+            <div class="step-content">
+              <div class="step-header">
+                <div class="step-num">1</div>
+                <div>
+                  <h3 class="step-title">Instalar APP</h3>
+                  <p class="step-desc">Configuración inicial y acceso a la herramienta para empezar a trabajar en la institución.</p>
+                </div>
+              </div>
+              <ul class="step-list">
+                <li>Ingreso y primeros pasos de configuración.</li>
+                <li>Preparación del entorno de uso institucional.</li>
+                <li>Recomendaciones para dejar todo listo antes de usarla.</li>
+              </ul>
+              <div class="step-actions">
+                <a class="tiny-btn" href="#tomar">➡ Siguiente: Tomar asistencia</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="step-card reveal" id="tomar">
+            <div class="video-shell">
+              <video controls preload="metadata" playsinline>
+                <source src="Tomar Asistencia.mp4" type="video/mp4" />
+                Tu navegador no puede reproducir este video.
+              </video>
+              <div class="step-topline">
+                <span class="badge">Paso 2</span>
+                <span class="tag">Uso diario</span>
+              </div>
+            </div>
+            <div class="step-content">
+              <div class="step-header">
+                <div class="step-num">2</div>
+                <div>
+                  <h3 class="step-title">Tomar Asistencia</h3>
+                  <p class="step-desc">Registro de asistencia de estudiantes en la rutina cotidiana, de manera ágil y ordenada.</p>
+                </div>
+              </div>
+              <ul class="step-list">
+                <li>Carga de asistencias por curso o grupo.</li>
+                <li>Marcación de estados habituales.</li>
+                <li>Flujo recomendado para una toma rápida.</li>
+              </ul>
+              <div class="step-actions">
+                <a class="tiny-btn" href="#editar">✏️ Ver edición de asistencia</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="step-card reveal" id="editar">
+            <div class="video-shell">
+              <video controls preload="metadata" playsinline>
+                <source src="Editar Asistencia.mp4" type="video/mp4" />
+                Tu navegador no puede reproducir este video.
+              </video>
+              <div class="step-topline">
+                <span class="badge">Paso 3</span>
+                <span class="tag">Correcciones</span>
+              </div>
+            </div>
+            <div class="step-content">
+              <div class="step-header">
+                <div class="step-num">3</div>
+                <div>
+                  <h3 class="step-title">Editar Asistencia</h3>
+                  <p class="step-desc">Ajuste de registros ya cargados para mantener la base consistente y actualizada.</p>
+                </div>
+              </div>
+              <ul class="step-list">
+                <li>Revisión de registros previos.</li>
+                <li>Corrección de estados de asistencia.</li>
+                <li>Buenas prácticas para evitar inconsistencias.</li>
+              </ul>
+              <div class="step-actions">
+                <a class="tiny-btn" href="#alertas">🔔 Ver alertas</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="step-card reveal" id="alertas">
+            <div class="video-shell">
+              <video controls preload="metadata" playsinline>
+                <source src="Emision de Alertas.mp4" type="video/mp4" />
+                Tu navegador no puede reproducir este video.
+              </video>
+              <div class="step-topline">
+                <span class="badge">Paso 4</span>
+                <span class="tag">Seguimiento</span>
+              </div>
+            </div>
+            <div class="step-content">
+              <div class="step-header">
+                <div class="step-num">4</div>
+                <div>
+                  <h3 class="step-title">Emisión de Alertas</h3>
+                  <p class="step-desc">Gestión de alertas para acompañar el seguimiento institucional y la intervención oportuna.</p>
+                </div>
+              </div>
+              <ul class="step-list">
+                <li>Generación de alertas desde la plataforma.</li>
+                <li>Lectura y seguimiento de situaciones.</li>
+                <li>Orden de trabajo recomendado dentro del equipo.</li>
+              </ul>
+              <div class="step-actions">
+                <a class="tiny-btn" href="https://lfaga-lab.github.io/AsistenciaES18/" target="_blank" rel="noopener">🚀 Ir a la plataforma</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container info-grid">
+        <div class="panel card reveal">
+          <div class="eyebrow" style="color:var(--green)">Buenas prácticas</div>
+          <h2 style="margin:4px 0 8px; font-size:22px; letter-spacing:-.02em">Recomendaciones para una implementación prolija</h2>
+          <p class="small" style="margin:0 0 10px">Un recorrido mínimo para que el equipo empiece a usar la herramienta con menos fricción.</p>
+          <div class="checklist">
+            <div class="check-item"><div class="check-dot">1</div><div><strong>Ver primero el video de instalación</strong><div class="small">Sirve para ordenar el contexto antes de usar la app en situaciones reales.</div></div></div>
+            <div class="check-item"><div class="check-dot">2</div><div><strong>Definir un circuito interno de uso</strong><div class="small">Quién toma asistencia, quién corrige registros y quién emite alertas.</div></div></div>
+            <div class="check-item"><div class="check-dot">3</div><div><strong>Usar la edición con criterio</strong><div class="small">Centralizar correcciones ayuda a sostener la consistencia de la información.</div></div></div>
+            <div class="check-item"><div class="check-dot">4</div><div><strong>Revisar alertas en rutina institucional</strong><div class="small">El valor está en el seguimiento sostenido, no solo en la emisión.</div></div></div>
+          </div>
+        </div>
+
+        <div class="panel card reveal">
+          <div class="eyebrow" style="color:var(--gold-2)">Accesos rápidos</div>
+          <h2 style="margin:4px 0 12px; font-size:22px; letter-spacing:-.02em">Navegación directa</h2>
+          <div class="quick-links">
+            <a class="qlink" href="https://lfaga-lab.github.io/AsistenciaES18/" target="_blank" rel="noopener">
+              <div class="left"><div class="ql-ico">🌐</div><div class="ql-meta"><b>Plataforma de Asistencia</b><span>Acceso directo al sistema institucional</span></div></div>
+              <div>↗</div>
+            </a>
+            <a class="qlink" href="#instalar">
+              <div class="left"><div class="ql-ico">⚙️</div><div class="ql-meta"><b>Instalación</b><span>Primeros pasos y preparación</span></div></div>
+              <div>↓</div>
+            </a>
+            <a class="qlink" href="#tomar">
+              <div class="left"><div class="ql-ico">📝</div><div class="ql-meta"><b>Toma de asistencia</b><span>Uso cotidiano del registro</span></div></div>
+              <div>↓</div>
+            </a>
+            <a class="qlink" href="#editar">
+              <div class="left"><div class="ql-ico">✏️</div><div class="ql-meta"><b>Edición de asistencia</b><span>Corrección y ajuste de registros</span></div></div>
+              <div>↓</div>
+            </a>
+            <a class="qlink" href="#alertas">
+              <div class="left"><div class="ql-ico">🔔</div><div class="ql-meta"><b>Emisión de alertas</b><span>Seguimiento institucional</span></div></div>
+              <div>↓</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="footer-cta">
+      <div class="container">
+        <div class="footer-box reveal">
+          <div>
+            <h3>Listo para empezar</h3>
+            <p>Ingresá a la plataforma y usá esta guía como apoyo de capacitación interna para el equipo de la Escuela Secundaria N° 18 de Almirante Brown.</p>
+          </div>
+          <div class="footer-actions">
+            <a class="btn btn-white" href="#videos">🎬 Ver videos</a>
+            <a class="btn btn-gold" href="https://lfaga-lab.github.io/AsistenciaES18/" target="_blank" rel="noopener">🚀 Abrir plataforma</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a class="floating-cta" href="https://lfaga-lab.github.io/AsistenciaES18/" target="_blank" rel="noopener">🚀 Ingresar a la plataforma</a>
+
+  <script>
+    // Animación suave de aparición
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('show');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // Pausa automática de otros videos al reproducir uno (mejora UX)
+    const vids = Array.from(document.querySelectorAll('video'));
+    vids.forEach(v => v.addEventListener('play', () => {
+      vids.forEach(other => { if(other !== v && !other.paused) other.pause(); });
+    }));
+  </script>
+</body>
+</html>
